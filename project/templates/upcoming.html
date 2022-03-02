@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Upcoming Events
+{% endblock %}
+
+{% block main %}
+    <h3>Upcoming Events in Next 7 Days</h3>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Type</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        {% for event in events %}
+            <tr>
+                <td>{{ event["event_time"] }}</td>
+                <td>{{ event["event_type"] }}</td>
+                <td>{{ event["activity"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

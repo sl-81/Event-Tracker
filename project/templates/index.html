@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        <div class="titles">
+            <h2>Add an Event</h2>
+            <h5>Select Date and Time of Event</h5>
+        </div>
+        <div class="mb-3">
+            <input type="datetime-local" name="datetime" class="form-control mx-auto w-auto">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" autocomplete="off" name="details" placeholder="Details" type="text">
+        </div>
+        <div class="titles">
+            <h5>Type of Event</h5>
+        </div>
+        <div class="events">
+            <div class="top">
+                <input type="radio" name="eventtype" value="health" id="health"><label for="health">Health<br><img src="https://img.icons8.com/external-line-rakhmat-setiawan/50/000000/external-health-healthcare-and-medical-line-line-rakhmat-setiawan.png"/></label>
+                <input type="radio" name="eventtype" value="finance" id="finance"><label for="finance">Finance<br><img src="https://img.icons8.com/wired/50/000000/billing.png"/></label>
+                <input type="radio" name="eventtype" value="productivity" id="productivity"><label for="productivity">Productivity<br><img src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/000000/external-book-library-wanicon-lineal-wanicon-1.png"/></label>
+            </div>
+            <div class="bottom">
+                <input type="radio" name="eventtype" value="celebrations" id="celebrations"><label for="celebrations">Celebrations<br><img src="https://img.icons8.com/external-justicon-lineal-justicon/64/000000/external-balloon-new-years-eve-justicon-lineal-justicon.png"/></label>
+                <input type="radio" name="eventtype" value="hobbies" id="hobbies"><label for="hobbies">Hobbies<br><img src="https://img.icons8.com/wired/64/000000/drawing.png"/></label>
+                <input type="radio" name="eventtype" value="misc" id="misc"><label for="misc">Misc<br><img src="https://img.icons8.com/wired/64/000000/calendar--v1.png"/></label>
+            </div>
+        </div>
+        <div class="button">
+            <button class="btn btn-secondary" type="submit">Add Event</button>
+        </div>
+    </form>
+{% endblock %}

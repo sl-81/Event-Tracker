@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Track an Event by Type
+{% endblock %}
+
+{% block main%}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Type</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        {% for event in events %}
+            <tr>
+                <td>{{ event["event_time"] }}</td>
+                <td>{{ event["event_type"] }}</td>
+                <td>{{ event["activity"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

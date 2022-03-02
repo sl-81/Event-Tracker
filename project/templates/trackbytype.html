@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Track an Event by Type
+{% endblock %}
+
+{% block main %}
+    <table class="table" id ="health">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Type</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        {% for event in health %}
+            <tr>
+                <td>{{ event["event_time"] }}</td>
+                <td>{{ event["event_type"] }}</td>
+                <td>{{ event["activity"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table class="table" id ="finance">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Type</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        {% for event in finance %}
+            <tr>
+                <td>{{ event["event_time"] }}</td>
+                <td>{{ event["event_type"] }}</td>
+                <td>{{ event["activity"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table class="table" id ="productivity">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Type</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        {% for event in productivity %}
+            <tr>
+                <td>{{ event["event_time"] }}</td>
+                <td>{{ event["event_type"] }}</td>
+                <td>{{ event["activity"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table class="table" id ="celebrations">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Type</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        {% for event in celebrations %}
+            <tr>
+                <td>{{ event["event_time"] }}</td>
+                <td>{{ event["event_type"] }}</td>
+                <td>{{ event["activity"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table class="table" id ="hobbies">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Type</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        {% for event in hobbies %}
+            <tr>
+                <td>{{ event["event_time"] }}</td>
+                <td>{{ event["event_type"] }}</td>
+                <td>{{ event["activity"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table class="table" id ="misc">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Type</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        {% for event in misc %}
+            <tr>
+                <td>{{ event["event_time"] }}</td>
+                <td>{{ event["event_type"] }}</td>
+                <td>{{ event["activity"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div id="hide">
+        View by Type
+        <form id="trackbyevents">
+            <select name="eventtype" id="eventtype" autofocus class="form-control mx-auto w-auto">
+                <option disabled selected>Type</option>
+                <option value="health">Health</option>
+                <option value="finance">Finance</option>
+                <option value="productivity">Productivity</option>
+                <option value="celebrations">Celebrations</option>
+                <option value="hobbies">Hobbies</option>
+                <option value="misc">Misc</option>
+            </select>
+            <br>
+            <div class="button">
+                <button class="btn btn-secondary" type="submit">Track</button>
+            </div>
+        </form>
+    </div>
+        <script>
+            let tables = document.querySelectorAll("table");
+            for (let i = 0; i < tables.length; i++){
+                tables[i].style.display="none";
+            }
+            document.getElementById("trackbyevents").addEventListener("submit", function(e){
+                var type = document.querySelector("#eventtype").value;
+                document.getElementById(type).style.display="initial";
+                document.getElementById("hide").style.display="none";
+                e.preventDefault();
+                });
+        </script>
+{% endblock %}

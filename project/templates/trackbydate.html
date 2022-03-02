@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Track an Event By date
+{% endblock %}
+
+{% block main %}
+    View by Date
+    <form action="/trackbydate" method="post">
+        <div class="mb-3">
+            <input type="date" name="date" class="form-control mx-auto w-auto">
+        </div>
+        <div class="button">
+            <button class="btn btn-secondary" type="submit">Track</button>
+        </div>
+    </form>
+{% endblock %}
